@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  margin: 2rem;
+}
+label {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+textarea {
+  width: 500px;
+  height: 195px;
+  padding: 0.7rem;
+  font-size: 1.15rem;
+  resize: none;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
