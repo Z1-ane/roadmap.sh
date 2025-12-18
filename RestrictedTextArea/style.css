@@ -7,7 +7,9 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .container {
+  width: 525px;
   margin: 2rem;
+  position: relative;
 }
 label {
   display: block;
@@ -22,4 +24,18 @@ textarea {
   resize: none;
   border: 2px solid black;
   border-radius: 1rem;
+  position: relative;
+}
+textarea:focus {
+  outline: none;
+}
+.error {
+  display: none;
+  font-size: 0.85rem;
+  color: red;
+}
+.counter {
+  position: absolute;
+  bottom: 23px;
+  right: 35px;
 }
