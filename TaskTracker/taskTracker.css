@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  height: 90vh;
+  width: max-content;
+  margin: 2rem auto;
+}
+.task-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.task-header h1 {
+  text-align: center;
+}
+.task-header input {
+  margin-top: 1rem;
+  width: 40vw;
+  height: 2rem;
+  padding: 1.35rem;
+  border-radius: 1.25rem;
+  outline: none;
+  border: 2px solid black;
+  font-size: 1.1rem;
+}
+.fa-plus {
+  background-color: black;
+  color: white;
+  padding: 0.1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.fa-plus:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transition: all 0.3s;
+}
+.fa-plus {
+  position: absolute;
+  top: 1.8rem;
+  right: 1rem;
+}
+.task-container {
+  height: 60vh;
+  margin-top: 1rem;
+  border: 2px solid black;
+  border-radius: 1.35rem;
+  padding: 1.15rem 1.75rem;
+}
+ul {
+  list-style-type: none;
+}
+.task-container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+}
+.task-container ul li > i {
+  margin-right: 1.15rem;
+}
+li {
+  margin-top: 0.35rem;
+  cursor: pointer;
+}
+.text {
+  font-size: 1.15rem;
+}
+.strike {
+  text-decoration: line-through;
+}
+.hide-icon {
+  display: none;
+}
+.show-icon {
+  display: none;
+}

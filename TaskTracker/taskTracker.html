@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="taskTracker.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="task-header">
+        <h1>Task Tracker</h1>
+        <div class="task-bar">
+          <input
+            type="text"
+            name="task"
+            id="task"
+            placeholder="Start writing and press enter to create task"
+          />
+          <i class="fa-solid fa-plus enter"></i>
+        </div>
+      </div>
+      <div class="task-container">
+        <ul class="task-list"></ul>
+
+        <template class="task-template">
+          <li class="list">
+            <span class="text"></span>
+            <i class="fa-regular fa-square empty-box"></i>
+            <i class="fa-solid fa-square-check show-icon marked-box"></i>
+            <i class="fa-solid fa-minus delete"></i>
+          </li>
+        </template>
+      </div>
+    </div>
+    <script src="taskTracker.js"></script>
+  </body>
+</html>
