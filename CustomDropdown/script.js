@@ -8,7 +8,7 @@ qnElm.addEventListener("click", () => {
   optDiv.classList.toggle("showOptions");
 });
 
-optElm.forEach((opt, index) => {
+optElm.forEach((opt) => {
   opt.addEventListener("click", () => {
     document.querySelectorAll(".tick").forEach((t) => {
       t.remove();

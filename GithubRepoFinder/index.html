@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Repo Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <i class="fa-brands fa-github github-logo"></i>
+        <h1>Github Repo Finder</h1>
+      </div>
+      <div class="dropdown">
+        <div class="selector">
+          <span class="qn">Select a Language </span>
+          <span><i class="fa-solid fa-angle-down"></i></span>
+        </div>
+        <div class="option-box show-box">
+          <ul class="option-list">
+            <template class="option-list-container">
+              <li class="option-elm"></li>
+            </template>
+          </ul>
+        </div>
+      </div>
+      <div class="result-container">
+        <div class="idle-state">Select a language</div>
+        <div class="fetch-state">Fetchiiiing Data</div>
+        <div class="sucess-state">
+          <div class="repo-name">Driver.js</div>
+          <div class="repo-description">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+            nesciunt mollitia, dicta id ex officia ratione odio facilis
+            cupiditate, distinctio asperiores necessitatibus veniam inventore
+            earum esse tempore culpa? Praesentium, corporis!
+          </div>
+          <div class="repo-extra-info">
+            <div class="language-name">
+              <span
+                ><i class="fa-solid fa-circle" style="color: #25850a"></i
+              ></span>
+              <span class="language">Javascript</span>
+            </div>
+            <div class="star">
+              <span
+                ><i class="fa-solid fa-star" style="color: #d3fb09"></i
+              ></span>
+              <span class="star-count">500</span>
+            </div>
+            <div class="fork">
+              <span> <i class="fa-solid fa-code-fork"></i></span>
+              <span class="fork-count">1571</span>
+            </div>
+            <div class="info">
+              <span
+                ><i class="fa-solid fa-circle-info" style="color: #000000"></i
+              ></span>
+              <span class="info-count">400</span>
+            </div>
+          </div>
+        </div>
+        <div class="reject-state">Couldn't Fetch API</div>
+      </div>
+      <div class="button">
+        <button>Refresh</button>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
