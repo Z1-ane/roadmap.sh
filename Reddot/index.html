@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Dot</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="redditIcon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="reddot-container">
+      <header id="page-header">
+        <div class="plus-icon">
+          <i class="fa-solid fa-plus plus"></i>
+        </div>
+        <div class="logo">
+          <img src="reddotlogo.jpg" alt="RedDot Logo" class="reddot-logo" />
+        </div>
+        <div class="myreddot">
+          <i class="fa-solid fa-bars-staggered myreddot-icon"></i>
+        </div>
+      </header>
+      <div class="page-body">
+        <div class="search-container hide">
+          <div class="search-head">
+            <span
+              ><h1>Add a new red<span class="dot">dot</span></h1>
+            </span>
+            <span>
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+          </div>
+          <div class="search-bar">
+            <input type="text" class="search-reddot-post" />
+          </div>
+          <div class="search-button">
+            <button class="add-reddot">
+              Add a red<span class="dot">dot</span>
+            </button>
+          </div>
+        </div>
+        <template class="sub-reddot-template">
+          <div class="sub-reddot-container">
+            <div class="sub-reddot-header">
+              <div class="sub-reddot-title"></div>
+              <div class="sub-reddot-icons">
+                <i class="fa-solid fa-arrows-rotate refresh"></i>
+                <i class="fa-solid fa-ban remove"></i>
+              </div>
+            </div>
+            <div class="post-container"></div>
+            <template class="sub-reddot-post-template">
+              <div class="sub-reddot-post">
+                <div class="user-info">
+                  <span class="user-icon"
+                    ><i class="fa-regular fa-user"></i
+                  ></span>
+                  <span class="user-name">Moderator 1</span>
+                </div>
+                <div class="user-post-title">
+                  <span class="post-title"
+                    >Welcome to my sub reddot container</span
+                  >
+                </div>
+                <div class="post-like-comment">
+                  <div class="post-upvote">
+                    <span class="upvote-icon"
+                      ><i class="fa-solid fa-up-long"></i
+                    ></span>
+                    <span class="upvote-count">200</span>
+                  </div>
+                  <div class="post-comment">
+                    <span class="comment-icon">
+                      <i class="fa-regular fa-comment"></i>
+                    </span>
+                    <span class="comment-count">200</span>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
+      <div class="error hide-error">This is an error message.</div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
