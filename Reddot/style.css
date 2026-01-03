@@ -21,6 +21,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
 }
 .logo {
   width: 80px;
@@ -50,6 +54,7 @@ body {
   justify-content: center;
   gap: 2rem;
   align-items: flex-start;
+  position: relative;
 }
 .search-container {
   width: 95%;
@@ -68,10 +73,11 @@ body {
   align-items: center;
   min-height: 25vh;
   height: auto;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 100%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 .hide {
   display: none;
@@ -124,36 +130,60 @@ input[type="text"] {
   color: black;
   transition: all 0.4s;
 }
-.post-container {
-  height: 80%;
-}
+
 .sub-reddot-container {
   background-color: #f7cbca;
-  height: 70vh;
+  height: 500px;
+  max-height: 80vh;
   width: 90%;
   max-width: 300px;
   padding: 0.25rem;
   border-radius: 0.45rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .sub-reddot-header {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 .refresh,
 .remove {
+  background: transparent;
   cursor: pointer;
   color: rgb(230, 36, 36);
 }
+.refresh:hover,
+.remove:hover {
+  transform: scale(1.2);
+  color: black;
+  transition: all 0.4s;
+}
 .post-container {
   overflow-y: auto;
-  height: 100%;
+  flex-grow: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.post-container::-webkit-scrollbar {
+  width: 8px;
+}
+.post-container::-webkit-scrollbar-thumb {
+  background-color: #f40752;
+  border-radius: 0.35rem;
+}
+.post-container::-webkit-scrollbar-track {
+  background-color: #db815d;
+  border-radius: 12px;
 }
 .sub-reddot-post {
   background-color: #cc0036;
   border-radius: 0.45rem;
   margin-bottom: 0.15rem;
+  margin-right: 0.35rem;
   padding: 0.25rem;
+  cursor: pointer;
 }
 .sub-reddot-post span {
   cursor: pointer;
@@ -171,10 +201,11 @@ input[type="text"] {
   color: white;
   border-radius: 0.25rem;
   cursor: not-allowed;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 5;
 }
 .hide-error {
   display: none;
