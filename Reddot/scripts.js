@@ -2,8 +2,9 @@ const reddotContainer = document.querySelector(".reddot-container");
 const pageBody = document.querySelector(".page-body");
 const searchBar = document.querySelector(".search-reddot-post");
 const addReddotBtn = document.querySelector(".add-reddot");
-
 const searchContainer = document.querySelector(".search-container");
+
+let savedSubs = JSON.parse(localStorage.getItem("myRedDots")) || [];
 
 // console.log(subReddotPost);
 //Show or hide search Container//
@@ -24,38 +25,54 @@ addReddotBtn.addEventListener("click", () => {
     showError("Cannot Fetch Empty Reddit");
   } else {
     searchContainer.classList.add("hide");
-    fetchredditpost(userVal);
+    fetchSubRedditData(userVal);
   }
 });
 
-async function fetchredditpost(subreddit) {
+async function fetchSubRedditData(subreddit, existingContainer = null) {
   const url = `https://www.reddit.com/r/${subreddit}.json`;
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error(`Subreddit "${subreddit}" not found`);
+    if (!response.ok) throw new Error(`Subreddit Not Found`);
     const data = await response.json();
-    if (data.error) throw new Error(data.error.message);
-    const template = document.querySelector(".sub-reddot-template");
-    const clone = template.content.cloneNode(true);
-    const reddotContainer = clone.querySelector(".sub-reddot-container");
-    const postContainer = clone.querySelector(".post-container");
-    clone.querySelector(".sub-reddot-title").textContent = `/r/${subreddit}`;
-
-    // clone.querySelector(".refresh").addEventListener("click", () => {
-    //   reddotContainer.innerHTML = "Hey It's Loading";
-    //   fetchredditpost(subreddit);
-    // });
-
-    clone.querySelector(".remove").addEventListener("click", () => {
-      reddotContainer.remove();
-    });
-    pageBody.appendChild(clone);
-    showRedditPosts(data.data.children, postContainer);
+    if (!data.data || !data.data.children || data.data.children.length === 0) {
+      throw new Error("That reddot is empty or doesn't exist.");
+    }
+    const content = data.data.children;
+    if (!savedSubs.includes(subreddit)) {
+      savedSubs.push(subreddit);
+      updateLocalStorage();
+    }
+    if (existingContainer) {
+      existingContainer.innerHTML = "";
+      showRedditPosts(content, existingContainer);
+    } else {
+      createTemplateShell(content);
+    }
   } catch (error) {
-    showError(error);
+    showError(error.message);
   }
 }
+function createTemplateShell(content) {
+  const subreddit = content[0].data.subreddit;
+  const template = document.querySelector(".sub-reddot-template");
+  const clone = template.content.cloneNode(true);
+  clone.querySelector(".sub-reddot-title").textContent = `r/${subreddit}`;
+  const subReddotContainer = clone.querySelector(".sub-reddot-container");
+  const postContainer = clone.querySelector(".post-container");
 
+  clone.querySelector(".refresh").addEventListener("click", () => {
+    postContainer.innerHTML = "Refetching...";
+    fetchSubRedditData(subreddit, postContainer);
+  });
+  clone.querySelector(".remove").addEventListener("click", () => {
+    subReddotContainer.remove();
+    savedSubs = savedSubs.filter((sub) => sub !== subreddit);
+    updateLocalStorage();
+  });
+  pageBody.appendChild(clone);
+  showRedditPosts(content, postContainer);
+}
 function showRedditPosts(content, subReddotContainer) {
   console.log(content);
   content.forEach((post) => {
@@ -76,8 +93,23 @@ function showRedditPosts(content, subReddotContainer) {
 function showError(message) {
   const errorElm = document.querySelector(".error");
   errorElm.textContent = message;
-  errorElm.classList.remove("hide-error");
-  setTimeout(() => {
-    errorElm.classList.add("hide-error");
+
+  errorElm.classList.add("show");
+
+  const hideTimeout = setTimeout(() => {
+    errorElm.classList.remove("show");
   }, 3000);
+
+  errorElm.onclick = () => {
+    clearTimeout(hideTimeout);
+    errorElm.classList.remove("show");
+  };
 }
+
+function updateLocalStorage() {
+  localStorage.setItem("myRedDots", JSON.stringify(savedSubs));
+}
+
+savedSubs.forEach((subName) => {
+  fetchSubRedditData(subName);
+});

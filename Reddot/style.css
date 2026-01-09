@@ -10,6 +10,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+  background-color: #850a18;
 }
 .reddot-container {
   padding: 1rem;
@@ -24,19 +25,26 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: white;
+  background-color: #720915;
+  padding: 0.15rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  color: white;
+  font-size: 1.15rem;
 }
 .logo {
-  width: 80px;
+  width: 60px;
 }
-.plus {
+.plus,
+.myreddot-icon {
   width: 100%;
   background: transparent;
   padding: 0.5rem;
   font-size: 1.15rem;
   cursor: pointer;
 }
-.plus:hover {
+.plus:hover,
+.myreddot-icon:hover {
   background-color: #cc0036;
   border-radius: 50%;
   transition: all 0.4s;
@@ -132,7 +140,7 @@ input[type="text"] {
 }
 
 .sub-reddot-container {
-  background-color: #f7cbca;
+  background-color: #f15567;
   height: 500px;
   max-height: 80vh;
   width: 90%;
@@ -174,7 +182,7 @@ input[type="text"] {
   border-radius: 0.35rem;
 }
 .post-container::-webkit-scrollbar-track {
-  background-color: #db815d;
+  background-color: #e67548;
   border-radius: 12px;
 }
 .sub-reddot-post {
@@ -185,6 +193,10 @@ input[type="text"] {
   padding: 0.25rem;
   cursor: pointer;
 }
+.sub-reddot-post:hover {
+  background-color: #cc00369a;
+  transition: all 0.4s;
+}
 .sub-reddot-post span {
   cursor: pointer;
 }
@@ -194,19 +206,32 @@ input[type="text"] {
 }
 
 .error {
-  width: 100%;
-  background-color: red;
-  text-align: center;
-  padding: 0.25rem;
+  width: 90%;
+  max-width: 400px;
+  background-color: #ff4c4c;
   color: white;
-  border-radius: 0.25rem;
-  cursor: not-allowed;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
   position: fixed;
-  top: 50%;
+  top: 1rem;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
+  transform: translateX(-50%) translateY(-50px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
 }
+
+.error.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
 .hide-error {
   display: none;
 }
