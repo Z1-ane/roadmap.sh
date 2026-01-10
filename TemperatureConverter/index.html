@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="temperature-container">
+      <h1>Temperature Converter</h1>
+      <p>Enter the temperature, select units and submit</p>
+      <div class="calc-container">
+        <div class="value">
+          <input
+            type="text"
+            name="temperature"
+            id="temperature"
+            placeholder="0.0"
+          />
+        </div>
+        <div class="from">
+          <div class="from-unit">
+            <span class="from-text">From Unit</span
+            ><span><i class="fa-solid fa-caret-down"></i></span>
+          </div>
+          <div class="unit-lists1 unit-lists">
+            <button>Fahrenheit</button>
+            <button>Celsius</button>
+            <button>Kelvin</button>
+          </div>
+        </div>
+        <div class="to">
+          <div class="to-unit">
+            <span class="to-text">To Unit</span
+            ><span><i class="fa-solid fa-caret-down"></i></span>
+          </div>
+          <div class="unit-lists2 unit-lists">
+            <button>Fahrenheit</button>
+            <button>Celsius</button>
+            <button>Kelvin</button>
+          </div>
+        </div>
+        <div class="convert">
+          <button class="convert-btn">Convert</button>
+        </div>
+      </div>
+      <div class="result"></div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

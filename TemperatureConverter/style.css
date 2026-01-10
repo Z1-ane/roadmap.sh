@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.temperature-container {
+  width: 90%;
+  max-width: 800px;
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.calc-container {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+button {
+  display: block;
+}
+input[type="text"] {
+  width: 100%;
+  max-width: 150px;
+  padding: 0.75rem;
+  border: 2px solid black;
+  border-radius: 0.55rem;
+  font-size: 1.15rem;
+}
+input[type="text"]::placeholder {
+  color: black;
+}
+.from,
+.to {
+  position: relative;
+}
+.from-unit,
+.to-unit {
+  font-size: 1.15rem;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 0.55rem;
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.from-unit:hover,
+.to-unit:hover {
+  background-color: gray;
+  transition: all 0.4s;
+  color: white;
+}
+
+.convert-btn {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.55rem;
+  outline: none;
+  border: 2px solid transparent;
+  font-size: 1.15rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.convert-btn:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  transition: all 0.4s;
+}
+.unit-lists {
+  display: none;
+}
+.unit-lists.show {
+  border: 2px solid black;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.55rem;
+  position: absolute;
+  top: 220%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.unit-lists button {
+  padding: 0.45rem;
+  font-size: 1.15rem;
+  background: white;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.unit-lists:last-child {
+  border-bottom: none;
+}
+.result {
+  height: auto;
+  color: green;
+  font-size: 1.15rem;
+  margin-top: 1rem;
+  min-height: 2rem;
+}
