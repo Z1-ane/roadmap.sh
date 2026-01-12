@@ -1,3 +1,5 @@
+//The DOM Way
+
 let taskEnterElm = document.querySelector(".enter");
 console.log(taskEnterElm);
 taskEnterElm.addEventListener("click", clickEnter);
@@ -20,12 +22,12 @@ function clickEnter() {
   emptyBox.addEventListener("click", () => {
     taskText.classList.toggle("strike");
     emptyBox.classList.toggle("hide-icon");
-    markedBox.classList.toggle("show-icon");
+    markedBox.classList.toggle("hide-icon");
   });
   markedBox.addEventListener("click", () => {
     taskText.classList.toggle("strike");
     emptyBox.classList.toggle("hide-icon");
-    markedBox.classList.toggle("show-icon");
+    markedBox.classList.toggle("hide-icon");
   });
   deleteBox.addEventListener("click", () => {
     liElm.remove();

@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Tracker - DOM</title>
+    <title>Task Tracker - Data</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="taskTracker.css" />
+    <link rel="stylesheet" href="taskTracker_data.css" />
   </head>
   <body>
     <div class="container">
       <div class="task-header">
-        <h1>Task Tracker - DOM way</h1>
+        <h1>Task Tracker - Data First Approach</h1>
         <div class="task-bar">
           <input
             type="text"
@@ -43,6 +43,14 @@
         </template>
       </div>
     </div>
-    <script src="taskTracker.js"></script>
+    <div class="task-state-container">
+      <div class="task-number">
+        Total Number of Tasks: <span class="task-num">0</span>
+      </div>
+      <div class="completed-task">
+        Completed Task: <span class="completed-num">0</span>
+      </div>
+    </div>
+    <script src="taskTracker_data.js"></script>
   </body>
 </html>
